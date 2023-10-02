@@ -1,0 +1,7 @@
+.mainBackground {
+    
+    background: linear-gradient(191deg, rgba(7, 6, 12, 0.01) -7.32%, rgba(52, 28, 199, 0.20) 35.5%, rgba(5, 5, 5, 0.00) 98.08%), #121212;
+    @media (min-width: 1024px) {
+        background: linear-gradient(233deg, rgba(52, 28, 199, 0.20) -6.34%, rgba(0, 0, 0, 0.00) 111.72%), #000;
+    }
+}
