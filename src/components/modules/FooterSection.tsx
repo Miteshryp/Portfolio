@@ -2,10 +2,10 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import instagram from "./../../../public/assets/graphics/instagram.svg"
-import github from "./../../../public/assets/graphics/github.svg"
-import linkedin from "./../../../public/assets/graphics/linkedin.svg"
-import twitter from "./../../../public/assets/graphics/twitter.svg"
+import instagram from "@/../public/assets/graphics/instagram.svg"
+import github from "@/../public/assets/graphics/github.svg"
+import linkedin from "@/../public/assets/graphics/linkedin.svg"
+import twitter from "@/../public/assets/graphics/twitter.svg"
 
 
 export default function FooterSection() {
@@ -22,7 +22,7 @@ export default function FooterSection() {
         
         <div className={`
             w-full
-            flex flex-row flex-wrap justify-evenly
+            flex flex-col gap-10 lg:flex-row lg:flex-wrap justify-evenly
         `}>
 
             {/* Links */}
@@ -48,12 +48,12 @@ export default function FooterSection() {
                 `}> Socials </h1>
                 <div className={`
                     flex flex-row flex-wrap 
-                    justify-evenly items-start gap-2 lg:gap-8
+                    justify-start gap-10 lg:justify-evenly items-start lg:gap-8
                 `}>
-                    <Image src={github} alt="" ></Image>
-                    <Image src={linkedin} alt="" ></Image>
-                    <Image src={instagram} alt="" ></Image>
-                    <Image src={twitter} alt="" ></Image>
+                    <Link href={""} > <Image src={github} alt="" ></Image> </Link>
+                    <Link href={""} > <Image src={linkedin} alt="" ></Image> </Link>
+                    <Link href={""} > <Image src={instagram} alt="" ></Image> </Link>
+                    <Link href={""} > <Image src={twitter} alt="" ></Image> </Link>
                 </div>
             </div>
 

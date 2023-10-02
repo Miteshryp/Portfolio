@@ -25,9 +25,15 @@ module.exports = {
         'bright-highlight': "#4F4FDF",
         "card": "rgba(32, 32, 75, 0.53)",
         'card-highlight': "#4F4FDF",
+        
         'card-dark-highlight': "#4147B8",
-        'card-component': "rgba(25, 47, 67, 0.25)",
+        'job-component': "rgba(25, 47, 67, 0.25)",
         'dark-card': "rgba(217, 217, 217, 0.10)",
+
+
+        'card-button': "#0B0B1F",
+        'card-highlight-button': "white",
+        
         'footer-background': "#1E1E1E",
       }
     },

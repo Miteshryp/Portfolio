@@ -1,25 +1,28 @@
 "use client";
+import Link from "next/link";
 import Image from "next/image";
 // import { Button, Flowbite, FlowbiteColors } from "flowbite-react";
-import Button from "./components/common/Button";
-import "./utils/css/landing.scss";
-import Navbar from "./components/Navbar";
-import BlogSection from "./components/BlogSection";
-import MainIcon from "../../public/assets/graphics/M Vector.svg";
-import JobCard from "./components/JobCard";
-import FooterSection from "./components/FooterSection";
+import Button from "@/components/common/Button";
+import Navbar from "@/components/modules/Navbar";
+import BlogSection from "@/components/modules/BlogSection";
+import MainIcon from "@/../public/assets/graphics/M Vector.svg";
+import JobCard from "@/components/modules/JobCard";
+import FooterSection from "@/components/modules/FooterSection";
+import {saveAs} from "file-saver"
 
 
-import instagram from "./../../public/assets/graphics/instagram.svg"
-import github from "./../../public/assets/graphics/github.svg"
-import linkedin from "./../../public/assets/graphics/linkedin.svg"
-import twitter from "./../../public/assets/graphics/twitter.svg"
-import medium from "./../../public/assets/graphics/medium.svg"
-import downloadIcon from "./../../public/assets/graphics/downloadIcon.svg"
+import instagram from "@/../public/assets/graphics/instagram.svg"
+import github from "@/../public/assets/graphics/github.svg"
+import linkedin from "@/../public/assets/graphics/linkedin.svg"
+import twitter from "@/../public/assets/graphics/twitter.svg"
+import medium from "@/../public/assets/graphics/medium.svg"
+import downloadIcon from "@/../public/assets/graphics/downloadIcon.svg"
+
+import "@/utils/css/landing.scss";
 
 export default function Home() {
   return (
-    <main className="mainBackground">
+    <main className="homeBackground">
       <div className="px-10 w-full h-full flex flex-col items-start justify-start gap-60">
         <Navbar />
 
@@ -57,10 +60,13 @@ export default function Home() {
             gap-10
           `}
             >
-              <div className="basis-2/5">
-                <Button size="w-full" label="Hello">
+              <div onClick={() => {
+                      saveAs("https://drive.google.com/file/d/1-N5uhLaUzhZK0_T70K8CyMs-bzdAYCvZ/view?usp=drive_link", "Mitesh Sharma - Resume.pdf")
+                    }} 
+                  className="basis-2/5">
+                <Button  size="w-full" label="Hello">
                   <span className="flex flex-row justify-center items-center gap-2">
-                    <Image src={downloadIcon} width={30} alt="" />
+                    <Image  src={downloadIcon} width={30} alt="" />
                     <p>
                       Resume
                     </p>
@@ -74,11 +80,11 @@ export default function Home() {
                 flex flex-row flex-wrap justify-evenly 2xl:justify-start items-center
                 gap-10
               `}>
-                  <Image src={github} alt="" ></Image>
-                  <Image src={linkedin} alt="" ></Image>
-                  <Image src={instagram} alt="" ></Image>
-                  <Image src={twitter} alt="" ></Image>
-                  <Image src={medium} alt="" ></Image>
+                  <Link href=""> <Image src={github} alt="" /></Link>
+                  <Link href=""> <Image src={linkedin} alt="" /></Link>
+                  <Link href=""> <Image src={instagram} alt="" /></Link>
+                  <Link href=""> <Image src={twitter} alt="" /></Link>
+                  <Link href=""> <Image src={medium} alt="" /></Link>
               </div>
             </div>
           </div>

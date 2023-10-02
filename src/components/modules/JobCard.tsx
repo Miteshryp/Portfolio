@@ -27,7 +27,7 @@ export default function JobCard() {
                     w-full
                     flex flex-row justify-center items-center
                     py-4 px-8 mx-auto
-                    bg-card-component
+                    bg-job-component
                     rounded-xl
                 `}
         >

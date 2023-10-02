@@ -1,11 +1,12 @@
 'use client';
 
-import Router from "next/router";
+import { useRouter  }from "next/navigation";
 
 export default function Navbar() {
-  const goToHome = (e: any) => {};
-  const goToProjects = (e: any) => {};
-  const goToAbout = (e: any) => {};
+  const router = useRouter();
+  const goToHome = (e: any) => {router.push('/')};
+  const goToProjects = (e: any) => {router.push('/projects')};
+  const goToAbout = (e: any) => {router.push('/about')};
 
   return (
     <div
