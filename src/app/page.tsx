@@ -23,22 +23,23 @@ import "@/utils/css/landing.scss";
 export default function Home() {
   return (
     <main className="homeBackground">
-      <div className="px-2 lg:px-10 w-full h-full flex flex-col items-start justify-start gap-60">
+      <div className="px-2 lg:px-10 w-full h-full flex flex-col items-start justify-start gap-2 lg:gap-60">
         <Navbar />
 
         {/* Center Section */}
         <section
           className={`
             mt-80
-            w-3/4  
+            w-8/12
+            lg:w-3/4  
             flex flex-col lg:flex-row gap-28 mx-auto lg:gap-32
             justify-center items-center text-center lg:text-left
             `}
         >
-          <Image src={MainIcon} className="basis-1/3" alt="" width={200} />
+          <Image src={MainIcon} className="lg:basis-1/3" alt="" width={200} />
           <div
             className={`
-            basis-2/3
+            lg:basis-2/3
             flex flex-col items-center justify-center gap-10
             px-16
             lg:items-start
@@ -95,7 +96,7 @@ export default function Home() {
           className={`
         w-full 
         px-4
-        lg:px-20 
+        md:px-20 
         flex flex-col-reverse lg:flex-row gap-20 2xl:gap-80
         lg:items-start lg:jusify-start
         items-center justify-center
