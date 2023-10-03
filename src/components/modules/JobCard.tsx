@@ -89,7 +89,7 @@ export default function JobCard() {
             bg-card-highlight 
             `}
       >
-        <h1 className="text-5xl font-inter font-black"> Work Experience </h1>
+        <h1 className="text-3xl lg:text-5xl font-inter font-black"> Work Experience </h1>
         <div className="w-full flex flex-col gap-6 xl:px-16 py-5">
             {jobs.map((r, index) => (
             <RoleComponent key={index} job={r} />

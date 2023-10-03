@@ -13,13 +13,14 @@ export default function Navbar() {
       className={`
         w-screen fixed
         bg-transparent backdrop-blur-md z-auto
-        flex flex-row items-center justify-end
-        gap-32
+        flex flex-row items-center justify-evenly lg:justify-end
+        gap-6 lg:gap-32
         font-inter 
         font-semibold
-        text-3xl
+        text-lg
+        lg:text-3xl
         py-6
-        pl-6 pr-40
+        lg:pl-6 lg:pr-40
         `}
     >
       <div 

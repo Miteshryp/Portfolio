@@ -23,7 +23,7 @@ import "@/utils/css/landing.scss";
 export default function Home() {
   return (
     <main className="homeBackground">
-      <div className="px-10 w-full h-full flex flex-col items-start justify-start gap-60">
+      <div className="px-2 lg:px-10 w-full h-full flex flex-col items-start justify-start gap-60">
         <Navbar />
 
         {/* Center Section */}
@@ -94,7 +94,8 @@ export default function Home() {
         <div
           className={`
         w-full 
-        px-20 
+        px-4
+        lg:px-20 
         flex flex-col-reverse lg:flex-row gap-20 2xl:gap-80
         lg:items-start lg:jusify-start
         items-center justify-center
