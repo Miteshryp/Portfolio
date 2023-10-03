@@ -92,10 +92,10 @@ export default function Projects() {
                     w-full
                     flex flex-row flex-wrap justify-around items-center gap-2 
                     `}>
-                    {projects.map( (p) => {
+                    {projects.map( (p, index) => {
                         return (
-                            <div className="w-full basis-1/4">
-                                <LinkCard title={p.name} description={p.description} ButtonComponent={() => <ButtonLink link={p.github} />} />
+                            <div key={index} className="w-full basis-1/4">
+                                <LinkCard key={index} title={p.name} description={p.description} ButtonComponent={() => <ButtonLink key={index} link={p.github} />} />
                             </div>
                         )}
                     )}

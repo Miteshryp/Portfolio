@@ -46,7 +46,7 @@ export default function Home() {
           `}
           >
             <h1 className="font-inconsolata font-black inline text-5xl xl:text-7xl">
-              Hii, I'm Mitesh
+              {"Hii, I'm Mitesh"}
             </h1>
             <p className="w-full overflow-clip font-inconsolata font-light text-2xl xl:text-4xl w-full/2">
               An Engineer passionate about developing backend systems, Devops

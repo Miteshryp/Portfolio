@@ -100,7 +100,7 @@ export default function BlogSection() {
         lg:bg-dark-card bg-transparent
         rounded-md
     `}>
-        {blogs.map(b => <LinkCard title={b.title} description={b.description} ButtonComponent={() => <LinkComponent link={b.link} />} />)}
+        {blogs.map( (b, index) => <LinkCard key={index} title={b.title} description={b.description} ButtonComponent={() => <LinkComponent key={index} link={b.link} />} />)}
         {/* <BlogComponent blog={{title: "Hello"}} />
         <BlogComponent blog={{title: "There"}} /> */}
     </div>
