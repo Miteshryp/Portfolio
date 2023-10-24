@@ -9,6 +9,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+
+      screens: {
+        "xlsm": "480px",
+        "2xlsm": "280px",
+        "3xlsm": "100px",
+        "no-view": "0px"
+      },
+
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

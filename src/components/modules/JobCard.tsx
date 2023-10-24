@@ -14,6 +14,8 @@ const jobs = [
 ];
 
 export default function JobCard() {
+  // @Todo: Connect the job card to fetch the job details from the backend
+
   const RoleComponent = (props: any) => {
     const job: { icon: string; role: string; tenure: string } = props.job;
     return (

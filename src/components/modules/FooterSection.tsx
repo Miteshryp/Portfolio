@@ -7,6 +7,7 @@ import github from "@/../public/assets/graphics/github.svg"
 import linkedin from "@/../public/assets/graphics/linkedin.svg"
 import twitter from "@/../public/assets/graphics/twitter.svg"
 
+import SubHeading from "@/components/common/SubHeading"
 
 export default function FooterSection() {
     return (
@@ -15,7 +16,7 @@ export default function FooterSection() {
         <div className={`
             flex flex-col gap-20
             mt-20 
-            px-20 py-10
+            px-4 md:px-20 py-10
             bg-footer-background/20
         `}>
 
@@ -64,6 +65,7 @@ export default function FooterSection() {
                     font-bold
                     text-3xl
                 `}>Contact Me</h1>
+                {/* <SubHeading> Contact Me </SubHeading> */}
 
                 <Link href="mailto:miteshryp@gmail" className="font-inconsolata font-regular text-xl"> miteshryp@gmail.com </Link>
             </div>
