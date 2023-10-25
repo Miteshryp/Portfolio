@@ -1,20 +1,21 @@
+import React from "react";
 import Image from "next/image";
+import SubHeading from "@/components/common/text/SubHeading";
 
-const jobs = [
-  {
-    icon: "https://formi.co.in/_next/static/media/formi_logo_whiteColor.79f158a3.svg",
-    role: "Role 1",
-    tenure: "June'23 - Aug'23",
-  },
-  {
-    icon: "https://formi.co.in/_next/static/media/formi_logo_whiteColor.79f158a3.svg",
-    role: "Role 1",
-    tenure: "June'23 - Aug'23",
-  },
-];
+import {IJobData} from "@/utils/services/types"
+import { getJobData } from "@/utils/services/publicData";
+
 
 export default function JobCard() {
-  // @Todo: Connect the job card to fetch the job details from the backend
+
+  let [jobs, setJobs] = React.useState<IJobData[]>([]);
+  
+  React.useEffect(() => {
+    (async () => {
+      let newData: IJobData[] = await getJobData();
+      setJobs(newData);
+    })()
+  }, []);
 
   const RoleComponent = (props: any) => {
     const job: { icon: string; role: string; tenure: string } = props.job;
@@ -27,7 +28,7 @@ export default function JobCard() {
         <div
           className={`
                     w-full
-                    flex flex-row justify-center items-center
+                    flex flex-col 2xlsm:flex-row justify-center items-center
                     py-4 px-8 mx-auto
                     bg-job-component
                     rounded-xl
@@ -61,13 +62,13 @@ export default function JobCard() {
           <div
             className={`
                 basis-1/2 
-                flex flex-row justify-end items-center
+                flex flex-row justify-center 2xlsm:justify-end items-center
                 text-right
             `}
           >
             <h1
               className={`
-                font-montserrat text-white/60 font-semibold text-md lg:text-xl
+                font-montserrat text-white/60 font-semibold text-md lg:text-xl break-words
               `}
             >
               {job?.tenure}
@@ -91,7 +92,8 @@ export default function JobCard() {
             bg-card-highlight 
             `}
       >
-        <h1 className="text-3xl lg:text-5xl font-inter font-black"> Work Experience </h1>
+        {/* <h1 className="text-3xl lg:text-5xl font-inter font-black"> Work Experience </h1> */}
+        <SubHeading> Work Experience </SubHeading>
         <div className="w-full flex flex-col gap-6 xl:px-16 py-5">
             {jobs.map((r, index) => (
             <RoleComponent key={index} job={r} />

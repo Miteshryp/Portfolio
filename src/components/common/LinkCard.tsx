@@ -1,7 +1,3 @@
-import Link from "next/link"
-import Image from "next/image";
-
-
 export default function LinkCard(props: {title: string, description: string, ButtonComponent: JSX.ElementType, children?: any}) {
     const {title, description, ButtonComponent} = props;
     return (
@@ -10,7 +6,7 @@ export default function LinkCard(props: {title: string, description: string, But
                 w-full
                 h-full
                 py-10
-                px-8 sm:px-14
+                3xlsm:px-4 xlsm:px-8 sm:px-14
                 flex flex-col justify-start items-start
                 gap-6
                 group
