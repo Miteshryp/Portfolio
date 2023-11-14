@@ -96,7 +96,7 @@ export default function Home() {
 								>
 									{profileData && (
 										<>
-											<Link href={profileData.github}>
+											<Link aria-label="Github Handle Link" href={profileData.github}>
 												{" "}
 												<Image
 													src={"/assets/graphics/github.svg"}
@@ -105,7 +105,7 @@ export default function Home() {
 													alt=""
 												/>
 											</Link>
-											<Link href={profileData.linkedin}>
+											<Link aria-label="Linkedin Handle Link" href={profileData.linkedin}>
 												{" "}
 												<Image
 													src={"/assets/graphics/linkedin.svg"}
@@ -114,7 +114,7 @@ export default function Home() {
 													alt=""
 												/>
 											</Link>
-											<Link href={profileData.instagram}>
+											<Link aria-label="Instagram Handle Link" href={profileData.instagram}>
 												{" "}
 												<Image
 													src={"/assets/graphics/instagram.svg"}
@@ -123,7 +123,7 @@ export default function Home() {
 													alt=""
 												/>
 											</Link>
-											<Link href={profileData.twitter}>
+											<Link aria-label="Twitter Handle Link" href={profileData.twitter}>
 												{" "}
 												<Image
 													src={"/assets/graphics/twitter.svg"}
@@ -132,7 +132,7 @@ export default function Home() {
 													alt=""
 												/>
 											</Link>
-											<Link href={profileData.medium}>
+											<Link aria-label="Medium Handle Link" href={profileData.medium}>
 												{" "}
 												<Image
 													src={"/assets/graphics/medium.svg"}

@@ -49,9 +49,9 @@ export default function FooterSection() {
                             font-inconsolata font-semibold md:text-4xl
                     `}
 					>
-						<Link href="/"> Home </Link>
-						<Link href="/projects"> Projects </Link>
-						<Link href="/about"> About </Link>
+						<Link aria-label="Home Page" href="/"> Home </Link>
+						<Link aria-label="Projects Page" href="/projects"> Projects </Link>
+						<Link aria-label="About Page" href="/about"> About </Link>
 					</SubHeading>
 
 					{/* Socials */}
@@ -72,7 +72,7 @@ export default function FooterSection() {
 							{profileData && (
 								<>
 									{/* Github */}
-									<Link href={profileData.github}>
+									<Link aria-label="Github handle link" href={profileData.github}>
 										<Image
 											src={"/assets/graphics/github.svg"}
 											width={socialsIconWidth}
@@ -82,7 +82,7 @@ export default function FooterSection() {
 									</Link>
 
 									{/* Linkedin */}
-									<Link href={profileData.linkedin}>
+									<Link aria-label="Linkedin handle link" href={profileData.linkedin}>
 										<Image
 											src={"/assets/graphics/linkedin.svg"}
 											width={socialsIconWidth}
@@ -92,7 +92,7 @@ export default function FooterSection() {
 									</Link>
 
 									{/* Instagram */}
-									<Link href={profileData.instagram}>
+									<Link aria-label="Instagram handle link" href={profileData.instagram}>
 										<Image
 											src={"/assets/graphics/instagram.svg"}
 											width={socialsIconWidth}
@@ -102,7 +102,7 @@ export default function FooterSection() {
 									</Link>
 
 									{/* Twitter */}
-									<Link href={profileData.twitter}>
+									<Link aria-label="Twitter handle link" href={profileData.twitter}>
 										<Image
 											src={"/assets/graphics/twitter.svg"}
 											width={socialsIconWidth}

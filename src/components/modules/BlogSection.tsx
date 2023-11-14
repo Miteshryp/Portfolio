@@ -1,17 +1,16 @@
 import Link from "next/link";
 import LinkCard from "../common/LinkCard";
 import { getLatestBlogs } from "@/utils/services/publicData";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IBlogData } from "@/utils/services/types";
 
 export default function BlogSection() {
-
 	let [blogs, setBlogs] = useState<IBlogData[]>([]);
 	useEffect(() => {
 		(async () => {
 			let blogData = await getLatestBlogs();
 			setBlogs(blogData);
-		})()
+		})();
 	}, []);
 
 	const LinkComponent = (props: { link: string }) => {
@@ -29,7 +28,7 @@ export default function BlogSection() {
                     transition ease-in-out duration-300
                 `}
 			>
-				{"Read More"}
+				{"Read on Medium"}
 			</Link>
 		);
 	};
@@ -38,12 +37,12 @@ export default function BlogSection() {
 		<>
 			<div
 				className={`
-        w-full
-        flex flex-col gap-10 lg:gap-0
-        justify-center items-center
-        lg:bg-dark-card bg-transparent
-        rounded-md
-    `}
+        			w-full
+        			flex flex-col gap-10 lg:gap-0
+        			justify-center items-center
+        			lg:bg-dark-card bg-transparent
+        			rounded-md
+    			`}
 			>
 				{blogs.map((b, index) => (
 					<LinkCard
