@@ -6,12 +6,12 @@ export function getLatestBlogs() : IBlogData[] | Promise<IBlogData[]> {
     return [
         {
             title: "Evolution of Computer Graphics",
-            description: "Take a deep dive into the history of graphics softwares, programming and animations.",
+            description: "Take a deep dive into the history of graphics softwares, programming and animations as we dwelve into the technical developments made in the graphics industry over the years.",
             link: "https://medium.com/@miteshryp/evolution-of-computer-graphics-b970be31d2c9"
         },
         {
             title: "Genesis: Kubernetes",
-            description: "The origin story of Kubernetes",
+            description: "Take a peek into the origin story of Kubernetes and how it boosted the open-source world along with the cloud native software ecosystem.",
             link: "https://medium.com/@miteshryp/genesis-kubernetes-8ee2c8cacd0"
         }
     ]
