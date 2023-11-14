@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 import LinkCard from "@/components/common/LinkCard";
@@ -9,13 +10,19 @@ import { AiFillGithub } from "react-icons/ai";
 import Heading from "@/components/common/text/Heading";
 import StandardLayout from "@/components/common/StandardLayout";
 import { getProjectsData } from "@/utils/services/publicData";
-
+import { IProjectsData } from "@/utils/services/types";
 
 export default function Projects() {
+	const [projects, setProjects] = useState<IProjectsData[]>([]);
 
-  const projects = getProjectsData();
+	useEffect(() => {
+		(async () => {
+			let projectsData: IProjectsData[] = await getProjectsData();
+			setProjects(projectsData);
+		})();
+	}, []);
 
-  const ButtonLink = (props: { link: string }) => {
+	const ButtonLink = (props: { link: string }) => {
 		const { link } = props;
 
 		return (
@@ -51,12 +58,12 @@ export default function Projects() {
             `}
 					>
 						<Heading> Projects </Heading>
-					
+
 						<p className="font-montserrat font-extrabold text-xl">
 							Some random texts
 						</p>
 
-            {/* Projects List */}
+						{/* Projects List */}
 						<div className="mx-auto">
 							<div
 								className={`

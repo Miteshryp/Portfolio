@@ -1,18 +1,28 @@
 "use client";
+import { useState, useEffect } from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 
-import instagram from "@/../public/assets/graphics/instagram.svg";
-import github from "@/../public/assets/graphics/github.svg";
-import linkedin from "@/../public/assets/graphics/linkedin.svg";
-import twitter from "@/../public/assets/graphics/twitter.svg";
-
+import { useWindowWidth } from "@/utils/common/windowSize";
+import { getProfileData } from "@/utils/services/publicData";
+import { IProfileData } from "@/utils/services/types";
 import SubHeading from "@/components/common/text/SubHeading";
-import { getSocialsData, getProfileData } from "@/utils/services/publicData";
 
 export default function FooterSection() {
-	let socialsData = getSocialsData();
-    let profileData = getProfileData();
+	let [profileData, setProfileData] = useState<IProfileData | null>(null);
+
+	useEffect(() => {
+		(async () => {
+			let newProfileData = await getProfileData();
+			setProfileData(newProfileData);
+		})();
+	}, []);
+
+	let windowWidth = useWindowWidth();
+	let socialsIconWidth = windowWidth > 768 ? 50 : windowWidth > 512 ? 40 : 35;
+
+	console.log(windowWidth);
 
 	return (
 		<>
@@ -59,25 +69,49 @@ export default function FooterSection() {
                                 justify-start gap-10 lg:justify-evenly items-start lg:gap-8
                             `}
 						>
-							{/* Github */}
-							<Link href={socialsData.github}>
-								<Image src={github} alt=""></Image>{" "}
-							</Link>
+							{profileData && (
+								<>
+									{/* Github */}
+									<Link href={profileData.github}>
+										<Image
+											src={"/assets/graphics/github.svg"}
+											width={socialsIconWidth}
+											height={20}
+											alt=""
+										></Image>{" "}
+									</Link>
 
-							{/* Linkedin */}
-							<Link href={socialsData.linkedin}>
-								<Image src={linkedin} alt=""></Image>{" "}
-							</Link>
+									{/* Linkedin */}
+									<Link href={profileData.linkedin}>
+										<Image
+											src={"/assets/graphics/linkedin.svg"}
+											width={socialsIconWidth}
+											height={20}
+											alt=""
+										></Image>{" "}
+									</Link>
 
-							{/* Instagram */}
-							<Link href={socialsData.instagram}>
-								<Image src={instagram} alt=""></Image>{" "}
-							</Link>
+									{/* Instagram */}
+									<Link href={profileData.instagram}>
+										<Image
+											src={"/assets/graphics/instagram.svg"}
+											width={socialsIconWidth}
+											height={20}
+											alt=""
+										></Image>{" "}
+									</Link>
 
-							{/* Twitter */}
-							<Link href={socialsData.twitter}>
-								<Image src={twitter} alt=""></Image>{" "}
-							</Link>
+									{/* Twitter */}
+									<Link href={profileData.twitter}>
+										<Image
+											src={"/assets/graphics/twitter.svg"}
+											width={socialsIconWidth}
+											height={20}
+											alt=""
+										></Image>{" "}
+									</Link>
+								</>
+							)}
 						</div>
 					</div>
 
@@ -88,16 +122,18 @@ export default function FooterSection() {
 							Contact Me{" "}
 						</SubHeading>
 
-						<Link
-							href={`mailto:${"miteshryp@gmail"}`}
-							className={`
+						{profileData && (
+							<Link
+								href={`mailto:${"miteshryp@gmail"}`}
+								className={`
                                 font-inconsolata font-regular
                                  3xlsm:text-sm 2xlsm:text-lg xlsm:text-xl
                             `}
-						>
-							{" "}
-							{profileData.email}{" "}
-						</Link>
+							>
+								{" "}
+								{profileData.email}{" "}
+							</Link>
+						)}
 					</div>
 				</div>
 

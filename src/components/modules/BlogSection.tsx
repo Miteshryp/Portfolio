@@ -1,9 +1,18 @@
 import Link from "next/link";
 import LinkCard from "../common/LinkCard";
 import { getLatestBlogs } from "@/utils/services/publicData";
+import React, { useState, useEffect } from "react";
+import { IBlogData } from "@/utils/services/types";
 
 export default function BlogSection() {
-	const blogs = getLatestBlogs();
+
+	let [blogs, setBlogs] = useState<IBlogData[]>([]);
+	useEffect(() => {
+		(async () => {
+			let blogData = await getLatestBlogs();
+			setBlogs(blogData);
+		})()
+	}, []);
 
 	const LinkComponent = (props: { link: string }) => {
 		const { link } = props;

@@ -46,6 +46,7 @@ export default function Navbar() {
       			`}
 			>
 				<Hamburger
+					label="Menu icon"
 					onToggle={() => {
 						setExpanded((s) => !s);
 					}}
@@ -56,6 +57,7 @@ export default function Navbar() {
 			{expanded || windowWidth > 768 ? (
 				<>
 					<div
+						aria-label="Home Page"
 						className={`
         					hover:text-card-highlight 
         					translate ease-in-out duration-300
@@ -65,6 +67,7 @@ export default function Navbar() {
 						Home
 					</div>
 					<div
+						aria-label="Projects Page"
 						className={`
         					hover:text-card-highlight
         					translate ease-in-out duration-300
@@ -74,6 +77,7 @@ export default function Navbar() {
 						Projects
 					</div>
 					<div
+						aria-label="About Page"
 						className={`
         					hover:text-card-highlight
         					translate ease-in-out duration-300

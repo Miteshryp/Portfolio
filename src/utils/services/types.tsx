@@ -15,3 +15,14 @@ export interface IProjectsData {
     description: string
     github: string
 }
+
+export interface IProfileData {
+    resume: string,
+    email: string,
+
+    github: string,
+    linkedin: string,
+    medium: string,
+    twitter: string,
+    instagram: string
+}

@@ -1,28 +1,31 @@
 "use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import Heading from "@/components/common/text/Heading";
-
-import Button from "@/components/common/Button";
-import BlogSection from "@/components/modules/BlogSection";
-import MainIcon from "@/../public/assets/graphics/M Vector.svg";
-import JobCard from "@/components/modules/JobCard";
 import { saveAs } from "file-saver";
 
-import instagram from "@/../public/assets/graphics/instagram.svg";
-import github from "@/../public/assets/graphics/github.svg";
-import linkedin from "@/../public/assets/graphics/linkedin.svg";
-import twitter from "@/../public/assets/graphics/twitter.svg";
-import medium from "@/../public/assets/graphics/medium.svg";
-import downloadIcon from "@/../public/assets/graphics/downloadIcon.svg";
+import Heading from "@/components/common/text/Heading";
+import Button from "@/components/common/Button";
+import BlogSection from "@/components/modules/BlogSection";
+import JobCard from "@/components/modules/JobCard";
 
-import "@/utils/css/landing.scss";
 import StandardLayout from "@/components/common/StandardLayout";
 import { getProfileData } from "@/utils/services/publicData";
+import { IProfileData } from "@/utils/services/types";
+
+import "@/utils/css/landing.scss";
 
 export default function Home() {
-	let profileData = getProfileData();
+	let [profileData, setProfileData] = useState<IProfileData | null>(null);
+
+	useEffect(() => {
+		(async () => {
+			let newProfileData = await getProfileData();
+			setProfileData(newProfileData);
+		})();
+	}, []);
 
 	return (
 		<main className="homeBackground">
@@ -38,7 +41,7 @@ export default function Home() {
             				justify-center items-center text-center lg:text-left
             			`}
 					>
-						<Image src={MainIcon} className="lg:basis-1/3" alt="" width={200} />
+						<Image src={"/assets/graphics/M Vector.svg"} className="lg:basis-1/3" alt="" width={200} />
 						<div
 							className={`
             					lg:basis-2/3
@@ -48,7 +51,6 @@ export default function Home() {
             					font-black
           					`}
 						>
-							{/* px-12 md:px-16 */}
 							<h1 className="font-inconsolata font-black inline text-5xl xl:text-7xl">
 								{"Hii, I'm Mitesh"}
 							</h1>
@@ -66,17 +68,20 @@ export default function Home() {
 							>
 								<div
 									onClick={() => {
-										saveAs(
-											profileData.resume,
-											"Mitesh Sharma - Resume.pdf"
-										);
+										if (profileData)
+											saveAs(profileData.resume, "Mitesh Sharma - Resume.pdf");
 									}}
 									className="basis-2/5"
 								>
-									<Button size="w-full" label="Hello">
+									<Button size="w-full" label="Resume Download">
 										<span className="flex flex-row justify-center items-center gap-2">
-											<Image src={downloadIcon} width={30} alt="" />
-											<p>Resume</p>
+											<Image
+												src={"/assets/graphics/downloadIcon.svg"}
+												width={30}
+												height={30}
+												alt=""
+											/>
+											<p aria-label="Resume">Resume</p>
 										</span>
 									</Button>
 								</div>
@@ -89,26 +94,55 @@ export default function Home() {
                 						gap-10
               						`}
 								>
-									<Link href="">
-										{" "}
-										<Image src={github} alt="" />
-									</Link>
-									<Link href="">
-										{" "}
-										<Image src={linkedin} alt="" />
-									</Link>
-									<Link href="">
-										{" "}
-										<Image src={instagram} alt="" />
-									</Link>
-									<Link href="">
-										{" "}
-										<Image src={twitter} alt="" />
-									</Link>
-									<Link href="">
-										{" "}
-										<Image src={medium} alt="" />
-									</Link>
+									{profileData && (
+										<>
+											<Link href={profileData.github}>
+												{" "}
+												<Image
+													src={"/assets/graphics/github.svg"}
+													width={45}
+													height={20}
+													alt=""
+												/>
+											</Link>
+											<Link href={profileData.linkedin}>
+												{" "}
+												<Image
+													src={"/assets/graphics/linkedin.svg"}
+													width={45}
+													height={20}
+													alt=""
+												/>
+											</Link>
+											<Link href={profileData.instagram}>
+												{" "}
+												<Image
+													src={"/assets/graphics/instagram.svg"}
+													width={45}
+													height={20}
+													alt=""
+												/>
+											</Link>
+											<Link href={profileData.twitter}>
+												{" "}
+												<Image
+													src={"/assets/graphics/twitter.svg"}
+													width={45}
+													height={20}
+													alt=""
+												/>
+											</Link>
+											<Link href={profileData.medium}>
+												{" "}
+												<Image
+													src={"/assets/graphics/medium.svg"}
+													width={45}
+													height={20}
+													alt=""
+												/>
+											</Link>
+										</>
+									)}
 								</div>
 							</div>
 						</div>
@@ -152,11 +186,4 @@ export default function Home() {
 			</StandardLayout>
 		</main>
 	);
-	{
-		/* Footer */
-	}
-	{
-		/* <FooterSection />
-	</main> */
-	}
 }
