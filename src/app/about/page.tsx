@@ -5,12 +5,13 @@ import Heading from "@/components/common/text/Heading";
 import Text from "@/components/common/text/Text";
 
 import profileImage from "@/../public/assets/profile.png";
-import "@/utils/css/landing.scss";
 import { useWindowWidth } from "@/utils/common/windowSize";
 import StandardLayout from "@/components/common/StandardLayout";
 
 import { getAboutParagrahs } from "@/utils/services/publicData";
 import { useEffect, useState } from "react";
+
+import "@/utils/css/landing.scss";
 
 export default function About() {
 	let windowWidth = useWindowWidth();

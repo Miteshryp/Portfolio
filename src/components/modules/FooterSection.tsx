@@ -22,8 +22,6 @@ export default function FooterSection() {
 	let windowWidth = useWindowWidth();
 	let socialsIconWidth = windowWidth > 768 ? 50 : windowWidth > 512 ? 40 : 35;
 
-	console.log(windowWidth);
-
 	return (
 		<>
 			<div

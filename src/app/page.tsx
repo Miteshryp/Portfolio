@@ -1,5 +1,6 @@
 "use client";
 
+import "@/utils/css/landing.scss";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,7 +16,6 @@ import StandardLayout from "@/components/common/StandardLayout";
 import { getProfileData } from "@/utils/services/publicData";
 import { IProfileData } from "@/utils/services/types";
 
-import "@/utils/css/landing.scss";
 
 export default function Home() {
 	let [profileData, setProfileData] = useState<IProfileData | null>(null);
@@ -41,7 +41,7 @@ export default function Home() {
             				justify-center items-center text-center lg:text-left
             			`}
 					>
-						<Image src={"/assets/graphics/M Vector.svg"} className="lg:basis-1/3" alt="" width={200} />
+						<Image src={"/assets/graphics/M Vector.svg"} className="lg:basis-1/3" alt="" width={200} height={200}/>
 						<div
 							className={`
             					lg:basis-2/3

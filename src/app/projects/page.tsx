@@ -1,16 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import { AiFillGithub } from "react-icons/ai";
 
 import LinkCard from "@/components/common/LinkCard";
-import "@/utils/css/landing.scss";
-
-import { AiFillGithub } from "react-icons/ai";
 import Heading from "@/components/common/text/Heading";
 import StandardLayout from "@/components/common/StandardLayout";
+
 import { getProjectsData } from "@/utils/services/publicData";
 import { IProjectsData } from "@/utils/services/types";
+
+import "@/utils/css/landing.scss";
 
 export default function Projects() {
 	const [projects, setProjects] = useState<IProjectsData[]>([]);
