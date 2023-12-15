@@ -22,7 +22,8 @@ export function getLatestBlogs() : IBlogData[] | Promise<IBlogData[]> {
 export function getJobData(): IJobData[] | Promise<IJobData[]> {
     return [
         {
-          icon: "https://formi.co.in/_next/static/media/formi_logo_whiteColor.79f158a3.svg",
+        //   icon: "https://formi.co.in/_next/static/media/formi_logo_whiteColor.79f158a3.svg",
+        icon: "/assets/formi.png",
           role: "Full Stack Engineer",
           tenure: "June'22 - Aug'22",
         },
